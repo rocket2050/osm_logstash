@@ -1,5 +1,5 @@
 ---
-- hosts: default
+- hosts: ubuntu
   roles:
     - { role: "logstash" }
   remote_user: root 
