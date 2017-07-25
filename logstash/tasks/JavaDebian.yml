@@ -1,0 +1,44 @@
+---
+# Setup Java on System
+
+- name: determine if Java is already installed
+  shell: which java
+  register: oracle_java_task_installed
+  changed_when: oracle_java_task_installed.rc != 0
+  become_user: true
+
+- name: debian | ubuntu | add java ppa repo
+  apt_repository:
+    repo='ppa:webupd8team/java'
+    state=present
+
+- name: Update and upgrade apt packages
+  become_user: true
+  apt:
+    update_cache: yes
+    cache_valid_time: 86400 #One day
+
+- name: auto accept oracle jdk license
+  shell: echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+  become_user: yes
+
+- name: ensure Java is installed
+  become_user: true
+  apt: name=oracle-java8-installer state=present force=yes
+
+- name: set Java version as default
+  apt:
+    name="oracle-java{{ oracle_java_version }}-set-default"
+
+# get Java Home path 
+- name: get the JAVA_HOME path
+  shell: readlink -f $(which java)|cut -d '/' -f 1-6
+  register: JAVA_HOME
+
+  
+- name: Setiing Java Path In Environment Variable
+  lineinfile:
+    path: /etc/environment
+    state: absent
+    regexp: '^JAVA_HOME'
+    line: 'JAVA_HOME= "JAVA_HOME.stdout"'

@@ -1,0 +1,39 @@
+---
+- apt_key:
+    url: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+    state: present
+  become_user: true
+
+- apt_repository:
+    repo: "deb https://artifacts.elastic.co/packages/5.x/apt stable main"
+    state: present
+    filename: 'elastic-5.x'
+  become_user: true
+
+
+- name: Check if Logstash is already installed.
+  stat: path=/etc/init.d/logstash
+  register: logstash_installed
+
+- name: Update apt cache if repository just added.
+  apt: update_cache=yes
+  when: logstash_installed.stat.exists == false
+
+#- name: Install Logstash.
+#  apt: pkg=logstash state=present
+# Download Tomcat tar from repo.
+#- get_url:
+#    url: "https://artifacts.elastic.co/downloads/logstash/logstash-5.5.0.deb"
+#    dest: /tmp
+
+# Initiating logstash repo
+#- name: download logstash deb file
+#  shell: dpkg -i /tmp/logstash-5.5.0.deb
+#  become_user: true
+#- name: Add Logstash user to adm group (Debian).
+#  user:
+#    name: logstash
+#    group: logstash
+#    groups: adm
+  when: ansible_os_family == "Debian"
+  notify: restart logstash
