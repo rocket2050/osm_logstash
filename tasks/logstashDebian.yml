@@ -30,11 +30,6 @@
   apt: update_cache=yes
   when: logstash_installed.stat.exists == false
 
-- get_url:
-    url: "https://artifacts.elastic.co/downloads/logstash/logstash-5.5.0.deb"
-    dest: /opt
-  become: true
-
 - name: Install Logstash.
   apt: name=logstash state=present
 
