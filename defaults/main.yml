@@ -32,4 +32,4 @@ Http_host: "0.0.0.0"
 Http_port: "9600"
 
 # default opts for elasticSearch.conf
-host: 192.168.0.225
+elasticSearchIp: 192.168.0.225
