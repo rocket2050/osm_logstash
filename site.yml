@@ -1,6 +1,6 @@
 ---
-- hosts: {{ host }}
+- hosts: "{{ host }}"
   roles:
-    - { role: "logstash" }
+    - { role: logstash }
 
 
