@@ -2,5 +2,5 @@
 - hosts: {{ host }}
   roles:
     - { role: "logstash" }
-  remote_user: root 
+
 
