@@ -13,11 +13,7 @@ Role Variables
 
 Available variables are listed below, along with default values (see defaults/main.yml):
 
-# defaults file for ansible-logstash
-# Defines if logstash_config_dir should be cleared out
-clear_logstash_config: false
-
-# Defines if logstash should be configured
+  clear_logstash_config: false
   java_tmp_storage: /tmp/java_install
   java_oracle_rpm: java8u131
   java_oracle_download: http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-   linux-x64.rpm
