@@ -17,7 +17,7 @@
 #
 # Use a descriptive name for the node:
 #
-node.name: {{ node.name }} 
+node.name: "{{ Node_name }}"
 #
 # If omitted the node name will default to the machine's host name
 #
@@ -134,7 +134,7 @@ path.config: /etc/logstash/conf.d
 # whichever criteria is reached first
 # Default is 1024mb or 1gb
 #
-queue.max_bytes: {{ queue.max_bytes }}
+queue.max_bytes: "{{ Queue_max_bytes }}"
 #
 # If using queue.type: persisted, the maximum number of acked events before forcing a checkpoint
 # Default is 1024, 0 for unlimited
@@ -165,12 +165,12 @@ queue.max_bytes: {{ queue.max_bytes }}
 #
 # Bind address for the metrics REST endpoint
 #
-http.host: {{ http.host }}
+http.host: "{{ Http_host }}"
 #
 # Bind port for the metrics REST endpoint, this option also accept a range
 # (9600-9700) and logstash will pick up the first available ports.
 #
-http.port: {{ http.port }}
+http.port: "{{ Http_port }}"
 #
 # ------------ Debugging Settings --------------
 #

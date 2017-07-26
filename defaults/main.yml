@@ -1,4 +1,5 @@
 ---
+
 # defaults file for logstash
 
 # default opts for JAVA
@@ -24,8 +25,8 @@ logstash_mx_heap_size: 512m
 
 # default opts for logstash.yml
 
-node.name: "Test"
-queue.page_capacity: 250mb
-queue.max_bytes: 1024mb
-http.host: "0.0.0.0"
-http.port: "9600"
+Node_name: Test
+Queue_page_capacity: 250mb
+Queue_max_bytes: 1024mb
+Http_host: "0.0.0.0"
+Http_port: "9600"
