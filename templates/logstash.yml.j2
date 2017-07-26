@@ -1,3 +1,4 @@
+# {{ ansible_managed }}
 # Settings file in YAML
 #
 # Settings can be specified either in hierarchical form, e.g.:
@@ -16,7 +17,7 @@
 #
 # Use a descriptive name for the node:
 #
-# node.name: test
+node.name: {{ node.name }} 
 #
 # If omitted the node name will default to the machine's host name
 #
@@ -133,7 +134,7 @@ path.config: /etc/logstash/conf.d
 # whichever criteria is reached first
 # Default is 1024mb or 1gb
 #
-# queue.max_bytes: 1024mb
+queue.max_bytes: {{ queue.max_bytes }}
 #
 # If using queue.type: persisted, the maximum number of acked events before forcing a checkpoint
 # Default is 1024, 0 for unlimited
@@ -164,12 +165,12 @@ path.config: /etc/logstash/conf.d
 #
 # Bind address for the metrics REST endpoint
 #
-# http.host: "127.0.0.1"
+http.host: {{ http.host }}
 #
 # Bind port for the metrics REST endpoint, this option also accept a range
 # (9600-9700) and logstash will pick up the first available ports.
 #
-# http.port: 9600-9700
+http.port: {{ http.port }}
 #
 # ------------ Debugging Settings --------------
 #

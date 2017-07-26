@@ -2,9 +2,10 @@
 
 # Xms represents the initial size of total heap space
 # Xmx represents the maximum size of total heap space
-
--Xms256m
--Xmx1g
+-Xms{{ logstash_ms_heap_size }}
+-Xmx{{ logstash_mx_heap_size }}
+#-Xms256m
+#-Xmx1g
 
 ################################################################
 ## Expert settings

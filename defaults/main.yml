@@ -1,9 +1,10 @@
 ---
 # defaults file for logstash
+
+# default opts for JAVA
 java_tmp_storage: /tmp/java_install
 __java_oracle_rpm: java8u131
 __java_oracle_download: http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
-#__java_oracle_download_checksum: md5:9024d13ec651d07de450d465f14065a6
 path_to_data:
 oracle_java_dir_source: '/usr/local/src'
 oracle_java_set_as_default: yes
@@ -16,3 +17,15 @@ oracle_java_cache_valid_time: 3600
 oracle_java_home: "/usr/lib/jvm/java-{{ oracle_java_version }}-oracle"
 oracle_java_os_supported: yes
 oracle_java_state: latest
+
+# default opts for logstash JVM
+logstash_ms_heap_size: 128m
+logstash_mx_heap_size: 512m
+
+# default opts for logstash.yml
+
+node.name: "Test"
+queue.page_capacity: 250mb
+queue.max_bytes: 1024mb
+http.host: "0.0.0.0"
+http.port: "9600"
