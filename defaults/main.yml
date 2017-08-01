@@ -15,7 +15,7 @@ oracle_java_ansible_arch_mappings:
   x86_64: x64
   i386: i586
 oracle_java_cache_valid_time: 3600
-oracle_java_home: "/usr/lib/jvm/java-{{ oracle_java_version }}-oracle"
+oracle_java_home: "/usr/lib/jvm/java-8-openjdk-amd64/bin/"
 oracle_java_os_supported: yes
 oracle_java_state: latest
 

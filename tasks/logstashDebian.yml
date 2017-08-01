@@ -1,38 +1,45 @@
 ---
+# Adding elastic key
 - apt_key:
     url: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
     state: present
   become_user: true
 
+# Adding elastic repo
 - apt_repository:
     repo: "deb https://artifacts.elastic.co/packages/5.x/apt stable main"
     state: present
     filename: 'elastic-5.x'
   become_user: true
 
-
+# Adding logstash group
 - name : add group
   group:
     name: logstash
     state: present
 
+# Adding logstash user to logstash group
 - name: Add Logstash user to logstatsh group (Debian).
   user:
     name: logstash
     group: logstash
   become: true
 
+# checking if logstash is already installed
 - name: Check if Logstash is already installed.
   stat: path=/etc/init.d/logstash
   register: logstash_installed
 
+# updating apt-cache
 - name: Update apt cache if repository just added.
   apt: update_cache=yes
   when: logstash_installed.stat.exists == false
 #  ignore_errors: yes
 
+# Installing logstash
 - name: Install Logstash.
   apt: name=logstash state=present
 
+# Restarting logstash
 - name: restart logstash
   service: name=logstash state=restarted
