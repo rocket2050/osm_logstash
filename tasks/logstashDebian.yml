@@ -3,14 +3,14 @@
 - apt_key:
     url: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
     state: present
-  become_user: true
+  become: true
 
 # Adding elastic repo
 - apt_repository:
     repo: "deb https://artifacts.elastic.co/packages/5.x/apt stable main"
     state: present
     filename: 'elastic-5.x'
-  become_user: true
+  become: true
 
 # Adding logstash group
 - name : add group
