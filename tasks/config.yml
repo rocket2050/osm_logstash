@@ -14,12 +14,12 @@
 #  mode: 0644
   notify: restart logstash
 
-# JVM options file
-- name: Create Logstash JVM-Options configuration files.
-  template:
-    src: "jvm.options.j2"
-    dest: "/etc/logstash/jvm.options"
-    owner: logstash
-    group: logstash
-    mode: 0644
+## JVM options file
+#- name: Create Logstash JVM-Options configuration files.
+#  template:
+#    src: "jvm.options.j2"
+#    dest: "/etc/logstash/jvm.options"
+#    owner: logstash
+#    group: logstash
+#    mode: 0644
 

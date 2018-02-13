@@ -1,14 +1,15 @@
 ---
-- name: Add Logstash GPG key.
-  rpm_key:
-    key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
-    state: present
+- name: Dependent file for Centos6
+  yum: name=libselinux-python state=installed
+  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == '6'
 
-- name: Add Logstash repository.
-  copy:
-    src: logstash.repo
-    dest: /etc/yum.repos.d/logstash.repo
-    mode: 0644
+- name: Add logstash repo
+  template: src=logstash.repo.j2 dest=/etc/yum.repos.d/logstash.repo
+#- name: Add Logstash repository.
+#  copy:
+#    src: logstash.repo
+#    dest: /etc/yum.repos.d/logstash.repo
+#    mode: 0644
 
 - name: Install Logstash.
   yum: pkg=logstash state=installed

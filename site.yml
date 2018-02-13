@@ -2,6 +2,6 @@
 - hosts: all
   
   roles:
-    - { role: /var/lib/awx/projects/_8__osm_logstash }
+    - { role: osm_logstash }
 
 
