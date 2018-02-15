@@ -1,2 +1,4 @@
 [logstash]
-127.0.0.1
+#127.0.0.1
+ubuntu16
+#centos7

@@ -12,19 +12,6 @@
     filename: 'elastic-{{ logstash_version }}.x'
   become: true
 
-# Adding logstash group
-- name : add group
-  group:
-    name: logstash
-    state: present
-
-# Adding logstash user to logstash group
-- name: Add Logstash user to logstatsh group (Debian).
-  user:
-    name: logstash
-    group: logstash
-  become: true
-
 # checking if logstash is already installed
 - name: Check if Logstash is already installed.
   stat: path=/etc/init.d/logstash
@@ -34,12 +21,9 @@
 - name: Update apt cache if repository just added.
   apt: update_cache=yes
   when: logstash_installed.stat.exists == false
-#  ignore_errors: yes
 
 # Installing logstash
 - name: Install Logstash.
   apt: name=logstash state=present
-
-# Restarting logstash
-- name: restart logstash
-  service: name=logstash state=restarted
+  notify:
+   - restart logstash
