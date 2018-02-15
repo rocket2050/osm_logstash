@@ -1,6 +1,5 @@
 ---
 - hosts: all
-  
   roles:
     - { role: osm_logstash }
 
