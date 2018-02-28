@@ -18,4 +18,4 @@ galaxy_info:
   galaxy_tags:
     - logstash
 dependencies:
-    - osm_java
+    - opstree-ansible.osm_java
