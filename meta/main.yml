@@ -16,6 +16,6 @@ galaxy_info:
     - trusty
     - vivid
   galaxy_tags:
-    - osm_logstash
+    - logstash
 dependencies:
     - osm_java
