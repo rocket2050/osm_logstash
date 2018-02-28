@@ -28,12 +28,19 @@ Role Variables
 Available variables are listed below, along with default values (see defaults/main.yml):
 
 logstash_ms_heap_size: 128m
+
 logstash_mx_heap_size: 512m
+
 Node_name: Test
+
 Queue_page_capacity: 250mb
+
 Queue_max_bytes: 512mb
+
 Http_host: "0.0.0.0"
+
 Http_port: "9600"
+
 elasticSearchIp: 192.168.0.225
 
 Dependencies
@@ -58,4 +65,7 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+###### www.opstree.com
+
+###### blog.opstree.com
+
